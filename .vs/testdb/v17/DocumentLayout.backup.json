@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\maros\\source\\testdb\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8A6C9F7F-A6F5-40D5-8BE9-71255A31D276}|testdb\\testdb.csproj|c:\\users\\maros\\source\\testdb\\testdb\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A6C9F7F-A6F5-40D5-8BE9-71255A31D276}|testdb\\testdb.csproj|solutionrelative:testdb\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\maros\\source\\testdb\\testdb\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "testdb\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\maros\\source\\testdb\\testdb\\MainWindow.xaml.cs",
+              "RelativeToolTip": "testdb\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAIYAAAAAAAAAAAAcwKAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T07:41:27.416Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
