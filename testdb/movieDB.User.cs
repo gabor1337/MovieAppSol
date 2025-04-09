@@ -3,7 +3,8 @@
     public partial class User {
 
         public User()
-        {
+        {            
+            //init an empty "Reviews" list and a empty "Watchlists" list (default watchlist)
             this.Watchlists = new List<Watchlist>();
             this.Reviews = new List<Review>();
             OnCreated();

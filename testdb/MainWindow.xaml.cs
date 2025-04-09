@@ -11,6 +11,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        //init database
         cn = new MovieDB.MovieDB();
         DBInic();
     }
@@ -19,12 +20,11 @@ public partial class MainWindow : Window
     {
         try
     {
+        //make sure its created
         cn.Database.EnsureCreated();  // Correct method name (camelCase)
         SeedData();
+        //test display 
         DisplayData();
-            var movie = cn.Movies.Include(m => m.Reviews).First();
-            Console.WriteLine($"Movie has {movie.Reviews.Count} reviews");
-            Console.WriteLine($"Average rating: {movie.avg_rating}");
         }
     catch (Exception ex)
     {
@@ -32,6 +32,7 @@ public partial class MainWindow : Window
     }
     }
 
+    //saves every database changes
     public void SeedData()
     {
         cn.Database.EnsureCreated();
@@ -62,9 +63,10 @@ public partial class MainWindow : Window
             new User { username = "jane_smith", passwd = "BCrypt.HashPassword(SecurePass456!" },
             new User { username = "movie_lover", passwd = "BCrypt.HashPassword(ILoveMovies789!" }
         };
+
         foreach (var user in users)
         {
-            // Check if this user already has a review for this movie
+            // Check if the username already in the Users database
             var existingUser = cn.Users
                 .FirstOrDefault(r => (r.username == user.username));
 
@@ -117,9 +119,11 @@ public partial class MainWindow : Window
                 runTime = 132
             }
         };
+
         foreach (var movie in movies)
         {
-            // Check if this user already has a review for this movie
+            // Checks if this movie already in the Movies database
+            //checks the title, in the future we have to be careful because there could movies with the same title. (Maybe check the runTime and releaseDate too)
             var existingMovie = cn.Movies
                 .FirstOrDefault(r => (r.title == movie.title));
 
@@ -152,6 +156,9 @@ public partial class MainWindow : Window
                         Movie = movies[0],
                     },
                     new Movie_Watchlist
+                    {
+                        Movie = movies[2],
+                    },new Movie_Watchlist
                     {
                         Movie = movies[2],
                     }
@@ -202,6 +209,7 @@ public partial class MainWindow : Window
                 .FirstOrDefault(w => w.User.user_id == wl.User.user_id &&
                                    w.list_name == wl.list_name);
 
+            //create a new watchlist if its not created yet
             if (watchlist == null)
             {
                 watchlist = new Watchlist
@@ -217,6 +225,7 @@ public partial class MainWindow : Window
             // Add movies that aren't already in the watchlist
             foreach (var movie in wl.Movie_Watchlists1)
             {
+                // check both movie_id to make sure its a different movie
                 if (!watchlist.Movie_Watchlists1.Any(mw => mw.Movie.movie_id == movie.Movie.movie_id))
                 {
                     watchlist.AddMovie(movie.Movie);
@@ -303,7 +312,7 @@ public partial class MainWindow : Window
     }
 
 
-
+    //its just for testing
     private void DisplayData()
     {
         var output = "";

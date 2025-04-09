@@ -27,6 +27,7 @@ namespace MovieDB
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(
+                    //database connection here
                     @"Server=Robi\SQL2022;Database=MovieDB;Integrated Security=True;TrustServerCertificate=True;"
                 );
             }

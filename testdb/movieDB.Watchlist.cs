@@ -5,27 +5,34 @@
         public Watchlist()
         {
             create_date = DateTime.Now;
+            //isDefault always true if its not a custom list
             this.isDefault = true;
+            //decides if the list will be default or custom
             CustomList(this.isDefault,this.list_name);
             this.movie_count = 0;
             this.Movie_Watchlists1 = new List<Movie_Watchlist>();
             OnCreated();
         }
 
+        
         public void CustomList(bool isDefault, string customName = null)
         {
+            //if isDefault = true -> list_name will be "watchlist"
             if (isDefault)
             {
                 this.list_name = "Watchlist";
             }
+            //isDefault = false
             else
             {
+                //we check if the user named the list to something or left it empty
                 if (!string.IsNullOrWhiteSpace(customName))
                 {
                     this.list_name = customName;
                 }
                 else
                 {
+                    //throw exception to the user if the customName is empty
                     throw new ArgumentException("Custom list name must be provided when isDefault is false");
                 }
             }

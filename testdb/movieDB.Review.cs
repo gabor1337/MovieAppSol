@@ -4,6 +4,7 @@
 
         public Review()
         {
+            //generates the exact time
             publish_date = DateTime.Now;
             OnCreated();
         }
