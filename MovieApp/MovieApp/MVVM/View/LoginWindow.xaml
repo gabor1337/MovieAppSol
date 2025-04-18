@@ -1,0 +1,90 @@
+﻿<Window x:Class="MovieApp.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MovieApp"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="450" Width="300"
+        AllowsTransparency="True" 
+        Background="Transparent" 
+        WindowStyle="None"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+
+            <Border CornerRadius="10" Grid.RowSpan="2">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#7be9f6" Offset="0.0"/>
+                        <GradientStop Color="#f083da" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Ide kell egy kép" Width="90"/>
+                <TextBlock Text="MovieApp" FontWeight="Light" FontFamily="Bahnschrift"
+                       FontSize="22"
+                       Foreground="DarkMagenta"
+                       HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="UserTextBox"
+                             FontFamily="Bahnschrift"
+                             FontSize="20"
+                             Text="Username"
+                             FontWeight="Light"
+                             HorizontalAlignment="Center"
+                             Background="Transparent"
+                             Foreground="DarkMagenta"
+                             BorderThickness="0"
+                             HorizontalContentAlignment="Left"
+                             Opacity="0.5"
+                             Height="25"
+                             Margin="63,0,0,0"/>
+                </StackPanel>
+                <Border Width="168"
+                        Height="2"
+                        Background="PapayaWhip"
+                        Opacity="0.5"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 0">
+                    <PasswordBox x:Name="PasswordTextBox"
+                                  FontFamily="Bahnschrift"
+                                  FontSize="20"
+                                  Password="Password"
+                                  FontWeight="Light"
+                                  HorizontalAlignment="Center"
+                                  Background="Transparent"
+                                  Foreground="DarkMagenta"
+                                  BorderThickness="0"
+                                  HorizontalContentAlignment="Left"
+                                  Opacity="0.5"
+                                  Height="25"
+                                  Margin="63,0,0,0"/>
+                </StackPanel>
+                <Border Width="168"
+                         Height="2"
+                         Background="PapayaWhip"
+                         Opacity="0.5"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0, 50, 0 ,0">
+                    <Button x:Name="LoginBtn" Click="LoginBtn_Click" Width="80" Height="35" Content="LOGIN" Margin="50, 0, 40, 0"/>
+                    <Button x:Name="RegisterBtn" Click="RegisterBtn_Click" Width="80" Height="35" Content="REGISTER"/>
+                </StackPanel>
+
+            </StackPanel>
+
+
+
+        </Grid>
+    </Grid>
+</Window>

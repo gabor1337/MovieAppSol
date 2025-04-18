@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="MovieApp.MVVM.View.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MovieApp.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="460" d:DesignWidth="800">
+    <Grid Name="MoviesGrid" SizeChanged="MoviesGrid_SizeChanged">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel  Grid.Row="0" >
+            <TextBlock Text="What to watch"
+                   Foreground="White"
+                   FontSize="28"
+                   HorizontalAlignment="Left"
+                   Margin="0,0,0,20"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+
+                <Button  x:Name="btnLeft1" HorizontalAlignment="Left" VerticalAlignment="Center"
+                         Style="{StaticResource LeftArrowButton}" Margin=" 0 0 10 0"  
+                         Command="{Binding RandomMoviesList.PreviousPageCommand}"
+                         IsEnabled="{Binding RandomMoviesList.CanGoPrevious}">
+
+                </Button>
+
+                <ItemsControl ItemsSource="{Binding RandomMoviesList.VisibleItems}"
+                              ItemTemplate="{StaticResource MovieCard}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+
+                <Button x:Name="btnRight1" HorizontalAlignment="Right" VerticalAlignment="Center"
+                        Style="{StaticResource RightArrowButton}" Margin=" 10 0 0 0" 
+                        Command="{Binding RandomMoviesList.NextPageCommand}"
+                        IsEnabled="{Binding RandomMoviesList.CanGoNext}">
+                </Button>
+
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel  Grid.Row="1">
+            <TextBlock Text="Top picks"
+           Foreground="White"
+           FontSize="28"
+           HorizontalAlignment="Left"
+           Margin="0,20,0,20"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                <Button  x:Name="btnLeft2" HorizontalAlignment="Left" VerticalAlignment="Center"
+                         Style="{StaticResource LeftArrowButton}" Margin=" 0 0 10 0"  
+                         Command="{Binding TopMoviesList.PreviousPageCommand}"
+                         IsEnabled="{Binding TopMoviesList.CanGoPrevious}"> 
+
+                </Button>
+
+                <ItemsControl ItemsSource="{Binding TopMoviesList.VisibleItems}"
+                              ItemTemplate="{StaticResource MovieCard}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+
+                <Button x:Name="btnRight2" HorizontalAlignment="Right" VerticalAlignment="Center"
+                        Style="{StaticResource RightArrowButton}" Margin=" 10 0 0 0" 
+                        Command="{Binding TopMoviesList.NextPageCommand}"
+                        IsEnabled="{Binding TopMoviesList.CanGoNext}">
+                </Button>
+
+            </StackPanel>
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>
