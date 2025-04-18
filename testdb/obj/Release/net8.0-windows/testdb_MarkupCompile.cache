@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-F:\gabi_suli_ize\MovieAppSolution\MovieAppDB\testdb\obj\Debug\net8.0-windows\
+F:\gabi_suli_ize\MovieAppSolution\MovieAppDB\testdb\obj\Release\net8.0-windows\
 testdb
 none
 false
-TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+TRACE;RELEASE;NET;NET8_0;NETCOREAPP
 F:\gabi_suli_ize\MovieAppSolution\MovieAppDB\testdb\App.xaml
 11407045341
 
-10805086304
+10353383577
 2281487761505
 MainWindow.xaml;
 
