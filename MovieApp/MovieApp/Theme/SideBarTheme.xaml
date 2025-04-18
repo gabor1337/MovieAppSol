@@ -1,0 +1,52 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="ArrowPathStyle" TargetType="Path">
+        <Setter Property="Opacity" Value="0.5"/>
+        <Setter Property="Stroke" Value="White"/>
+        <Setter Property="StrokeThickness" Value="2"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" 
+                     Value="True">
+                <Setter Property="Opacity" Value="1.0"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Path x:Key="LeftArrow" Data="M20,0 L0,40 L20,80" Style="{StaticResource ArrowPathStyle}" x:Shared="False"/>
+    <Path x:Key="RightArrow" Data="M0,0 L20,40 L0,80" Style="{StaticResource ArrowPathStyle}" x:Shared="False"/>
+
+    <!-- Button Template with Hover Effects -->
+    <ControlTemplate x:Key="ArrowButtonTemplate" TargetType="Button">
+        <Border x:Name="border" 
+                Background="Transparent" 
+                BorderBrush="Transparent"
+                CornerRadius="4">
+            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="#20FFFFFF"/>
+                <Setter TargetName="border" Property="BorderBrush" Value="#60FFFFFF"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!-- Left Arrow Button Style -->
+    <Style x:Key="LeftArrowButton" TargetType="Button">
+        <Setter Property="Template" Value="{StaticResource ArrowButtonTemplate}"/>
+        <Setter Property="Content" Value="{StaticResource LeftArrow}"/>
+        <Setter Property="Width" Value="50"/>
+        <Setter Property="Height" Value="100"/>
+        <Setter Property="Cursor" Value="Hand"/>
+    </Style>
+
+    <!-- Right Arrow Button Style -->
+    <Style x:Key="RightArrowButton" TargetType="Button">
+        <Setter Property="Template" Value="{StaticResource ArrowButtonTemplate}"/>
+        <Setter Property="Content" Value="{StaticResource RightArrow}"/>
+        <Setter Property="Width" Value="50"/>
+        <Setter Property="Height" Value="100"/>
+        <Setter Property="Cursor" Value="Hand"/>
+    </Style>
+</ResourceDictionary>
